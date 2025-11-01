@@ -3,27 +3,45 @@
 //吴振华
 #include <stdio.h>
 
-int main() {
-    int score;
+int main() 
+{
+    int n;
+    printf("请输入一个小于50的正整数：");
+    scanf("%d", &n);
     
-    // 获取用户输入的成绩
-    printf("请输入学生成绩（0-100）：");
-    scanf("%d", &score);
+    if (n <= 0 || n >= 50) 
+    {
+        printf("输入无效，请输入小于50的正整数\n");
+        return 0;
+    }
     
-    // 从高分到低分进行判断
-    if (score >= 90 && score <= 100) {
-        printf("A\n");
-    } else if (score >= 80 && score < 90) {
-        printf("B\n");
-    } else if (score >= 70 && score < 80) {
-        printf("C\n");
-    } else if (score >= 60 && score < 70) {
-        printf("D\n");
-    } else if (score >= 0 && score < 60) {
-        printf("E\n");
-    } else {
-        printf("输入错误！成绩应该在0-100之间。\n");
+    if (n == 1) 
+    {
+        printf("密钥不安全，请重新输入\n");
+        return 0;
+    }
+    
+    int isPrime = 1; 
+    int i = 2;       
+    
+    while (i < n) 
+    {
+        if (n % i == 0) 
+        {
+            isPrime = 0; 
+            break;       
+        }
+        i++; 
+    }
+    
+    if (isPrime) 
+    {
+        printf("密钥安全，密码设置成功\n");
+    } 
+    else 
+    {
+        printf("密钥不安全，请重新输入\n");
     }
     
     return 0;
-}
+}   
