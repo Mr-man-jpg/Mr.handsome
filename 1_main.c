@@ -4,28 +4,41 @@
 #include <stdio.h>
 int main() 
 {
-    int arr[5]; 
+    int n;
+    printf("请输入一个小于50的正整数：");
+    scanf("%d", &n);
     
-    for (int i = 0; i < 4; i++) 
+    if (n <= 0 || n >= 50) 
     {
-        scanf("%d", &arr[i]);
+        printf("输入无效，请输入小于50的正整数\n");
+        return 0;
     }
     
-    arr[4] = 0; 
-    for (int i = 0; i < 4; i++) 
+    if (n == 1) 
     {
-        arr[4] += arr[i];
+        printf("密钥不安全，请重新输入\n");
+        return 0;
     }
     
-    for (int i = 0; i < 5; i++)
+    int i; 
+    for ( i = 2; i < n; i++) 
     {
-        printf("%d", arr[i]);
-        if (i < 4) 
-        {
-            printf(" "); 
-        }  
+        if (n % i == 0)
+        { 
+            break;       
+        }
+    }
+    
+    if (i == n) 
+    {
+        printf("密钥安全，密码设置成功\n");
+    } 
+    else 
+    {
+        printf("密钥不安全，请重新输入\n");
     }
     
     return 0;
 }
+    
 
