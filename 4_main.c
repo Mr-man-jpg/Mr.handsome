@@ -2,20 +2,31 @@
 //3368860548@qq.com
 //吴振华
 #include <stdio.h>
+int main() 
+{
+    int count = 0; 
+    int num = 100;
 
-int main() {
-    int a, b, c;
-    
-    // 输入三条线段长度
-    printf("请输入三条线段的长度（三个整数）：");
-    scanf("%d %d %d", &a, &b, &c);
-    
-    // 判断能否组成三角形
-    if (a + b > c && a + c > b && b + c > a) {
-        printf("可以组成三角形\n");
-    } else {
-        printf("不能组成三角形\n");
+    while ( num <= 999) 
+    {
+        int a = num / 100;        
+        int b = (num / 10) % 10;  
+        int c = num % 10;         
+        
+        int sum = a * a * a + b * b * b + c * c * c;
+        
+        if (sum == num) 
+        {
+            if (count > 0) 
+            {
+                printf(" "); 
+            }
+            printf("%d", num);
+            count++;
+        }
+        num++;
     }
+
     
     return 0;
 }
