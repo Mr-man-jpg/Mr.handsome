@@ -3,30 +3,43 @@
 //吴振华
 #include <stdio.h>
 
+void reverseArray(int arr[], int length) 
+{
+    int i, temp;
+    for (i = 0; i < length / 2; i++) 
+    {
+      
+        temp = arr[i];
+        arr[i] = arr[length - 1 - i];
+        arr[length - 1 - i] = temp;
+    }
+}
+
 int main() 
 {
-    int records[5]; 
+    int arr[5];
+    int i;
     
-    for (int i = 0; i < 4; i++) 
+
+    printf("请输入5个整数：\n");
+    for (i = 0; i < 5; i++) 
     {
-        scanf("%d", &records[i]);
+        scanf("%d", &arr[i]);
     }
     
-    for (int i = 4; i > 0; i--) 
-    {
-        records[i] = records[i-1];
-    }
+
+    reverseArray(arr, 5);
     
-    records[0] = 0;
-    
-    for (int i = 0; i < 5; i++) 
+
+    for (i = 0; i < 5; i++) 
     {
-        printf("%d", records[i]);
-        if (i < 4) 
+        printf("%d", arr[i]);
+        if (i < 4)
         {
-            printf(" "); 
+            printf(" ");
         }
     }
+    printf("\n");
     
     return 0;
 }
