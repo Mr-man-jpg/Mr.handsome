@@ -1,53 +1,28 @@
 //202510116309 
 //3368860548@qq.com
 //吴振华
-#include <stdio.h>
-
-double power(int a, int b) 
+void bubbleSort(int arr[], int n) 
 {
-    double result = 1.0;
-    int i;
-    
-
-    if (b == 0) 
-    {
-        return 1.0;
-    }
-    
+    int i, j, temp;
   
-    if (b > 0) 
+    
+    for (i = 0; i < n - 1; i++) 
     {
-        for (i = 0; i < b; i++) 
+        swapped = 0;
+        for (j = 0; j < n - 1 - i; j++) 
         {
-            result *= a;
+            if (arr[j] > arr[j + 1]) 
+            {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = 1;
+            }
         }
-    } 
-  ）
-    else {
-        for (i = 0; i < -b; i++) 
+     
+        if (!swapped)
         {
-            result *= a;
+            break;
         }
-        result = 1.0 / result;
     }
-    
-    return result;
 }
-
-int main() 
-{
-    int i;
-    double sum = 0;
-    
-
-    for (i = 1; i <= 5; i++) 
-    {
-        sum += power(i, 2);  
-    }
-    
-
-    printf("%.0f\n", sum);  
-    
-    return 0;
-}
-
