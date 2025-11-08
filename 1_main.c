@@ -8,7 +8,7 @@ int main()
     int matrix[3][3];
     int i, j;
     
-    // 输入矩阵
+   
     printf("请输入3*3矩阵：\n");
     for(i = 0; i < 3; i++) 
     {
@@ -18,7 +18,7 @@ int main()
         }
     }
     
-    // 输出矩阵
+ 
     printf("输出结果：\n");
     for(i = 0; i < 3; i++) 
     {
