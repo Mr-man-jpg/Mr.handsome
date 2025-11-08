@@ -3,25 +3,49 @@
 //吴振华
 #include <stdio.h>
 
-int arithmeticSum(int a1, int an, int step) 
+// 计算a的b次幂的函数
+double power(int a, int b) 
 {
-    int n;  
+    double result = 1.0;
+    int i;
     
-    if (step == 0) 
+    // 处理指数为0的情况
+    if (b == 0) 
     {
-        return 0;  
+        return 1.0;
     }
     
-    n = (an - a1) / step + 1;
+    if (b > 0) 
+    {
+        for (i = 0; i < b; i++) 
+        {
+            result *= a;
+        }
+    } 
+
+    else {
+        for (i = 0; i < -b; i++) 
+        {
+            result *= a;
+        }
+        result = 1.0 / result;
+    }
     
-    return n * (a1 + an) / 2;
+    return result;
 }
 
 int main() 
 {
-  
-    int result = arithmeticSum(1, 100, 1);
-    printf("%d\n", result);
+    int i;
+    double sum = 0;
+    
+    for (i = 1; i <= 5; i++) 
+    {
+        sum += power(i, 2);  
+    }
+    
+    printf("%.0f\n", sum); 
     
     return 0;
 }
+
