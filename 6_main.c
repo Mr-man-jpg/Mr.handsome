@@ -3,30 +3,48 @@
 //吴振华
 #include <stdio.h>
 
+// 求数组元素和的函数
+int arraySum(int arr[], int length) 
+{
+    int sum = 0;
+    int i;
+    for (i = 0; i < length; i++) 
+    {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int arrayProduct(int arr[], int length) 
+{
+    int product = 1;
+    int i;
+    for (i = 0; i < length; i++)
+        {
+        product *= arr[i];
+    }
+    return product;
+}
+
 int main() 
 {
-    int arr[5]; 
-    int count = 0; 
+    int arr[5];
+    int i;
     
-    while (count < 5) 
+
+    printf("请输入5个整数：\n");
+    for (i = 0; i < 5; i++) 
     {
-        int num;
-        scanf("%d", &num); 
-        
-        if (num % 2 == 0) 
-        {
-            arr[count] = num; 
-            count++; 
-        }
+        scanf("%d", &arr[i]);
     }
     
-    for (int i = 0; i < 5; i++) 
-    {
-        printf("%d", arr[i]);
-        if (i < 4) {
-            printf(" "); 
-        }
-    }
+
+    int sum = arraySum(arr, 5);
+    int product = arrayProduct(arr, 5);
+    
+  
+    printf("%d %d\n", sum, product);
     
     return 0;
 }
+
