@@ -2,43 +2,32 @@
 //3368860548@qq.com
 //吴振华
 #include <stdio.h>
+
 int main() 
 {
-    int n;
-    printf("请输入一个小于50的正整数：");
-    scanf("%d", &n);
+    int matrix[3][3];
+    int i, j;
     
-    if (n <= 0 || n >= 50) 
+    // 输入矩阵
+    printf("请输入3*3矩阵：\n");
+    for(i = 0; i < 3; i++) 
     {
-        printf("输入无效，请输入小于50的正整数\n");
-        return 0;
-    }
-    
-    if (n == 1) 
-    {
-        printf("密钥不安全，请重新输入\n");
-        return 0;
-    }
-    
-    int i; 
-    for ( i = 2; i < n; i++) 
-    {
-        if (n % i == 0)
-        { 
-            break;       
+        for(j = 0; j < 3; j++) 
+        {
+            scanf("%d", &matrix[i][j]);
         }
     }
     
-    if (i == n) 
+    // 输出矩阵
+    printf("输出结果：\n");
+    for(i = 0; i < 3; i++) 
     {
-        printf("密钥安全，密码设置成功\n");
-    } 
-    else 
-    {
-        printf("密钥不安全，请重新输入\n");
+        for(j = 0; j < 3; j++) 
+        {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
     }
     
     return 0;
 }
-    
-
