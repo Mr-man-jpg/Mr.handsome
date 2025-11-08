@@ -3,29 +3,47 @@
 //吴振华
 #include <stdio.h>
 
+int arraySum(int arr[], int length) 
+{
+    int sum = 0;
+    int i;
+    for (i = 0; i < length; i++)
+        {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int arrayProduct(int arr[], int length) 
+{
+    int product = 1;
+    int i;
+    for (i = 0; i < length; i++) 
+    {
+        product *= arr[i];
+    }
+    return product;
+}
+
 int main() 
 {
-    int arr[5]; 
+    int arr[5];
+    int i;
     
-    for (int i = 0; i < 4; i++) 
+
+    printf("请输入5个整数：\n");
+    for (i = 0; i < 5; i++) 
     {
         scanf("%d", &arr[i]);
     }
     
-    arr[4] = 0; 
-    for (int i = 0; i < 4; i++) 
-    {
-        arr[4] += arr[i];
-    }
+
+    int sum = arraySum(arr, 5);
+    int product = arrayProduct(arr, 5);
     
-    for (int i = 0; i < 5; i++)
-    {
-        printf("%d", arr[i]);
-        if (i < 4) 
-        {
-            printf(" "); 
-        }  
-    }
+
+    printf("%d %d\n", sum, product);
     
     return 0;
 }
+
