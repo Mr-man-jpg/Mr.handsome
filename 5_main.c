@@ -3,47 +3,34 @@
 //吴振华
 #include <stdio.h>
 
-int arraySum(int arr[], int length) 
+int arithmeticSum(int a1, int an, int step) 
 {
-    int sum = 0;
-    int i;
-    for (i = 0; i < length; i++)
-        {
-        sum += arr[i];
-    }
-    return sum;
-}
+    int n; 
+    
 
-int arrayProduct(int arr[], int length) 
-{
-    int product = 1;
-    int i;
-    for (i = 0; i < length; i++) 
+    if (step == 0)
     {
-        product *= arr[i];
+        return 0;  
     }
-    return product;
+    
+    n = (an - a1) / step + 1;
+    
+    // 等差数列求和公式：S = n * (a1 + an) / 2
+    return n * (a1 + an) / 2;
 }
 
 int main() 
 {
-    int arr[5];
-    int i;
-    
-
-    printf("请输入5个整数：\n");
-    for (i = 0; i < 5; i++) 
-    {
-        scanf("%d", &arr[i]);
-    }
-    
-
-    int sum = arraySum(arr, 5);
-    int product = arrayProduct(arr, 5);
-    
-
-    printf("%d %d\n", sum, product);
+    // 计算从1加到100的值
+    int result = arithmeticSum(1, 100, 1);
+    printf("%d\n", result);
     
     return 0;
 }
+
+
+
+
+
+
 
