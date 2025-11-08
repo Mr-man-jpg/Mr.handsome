@@ -3,45 +3,59 @@
 //吴振华
 #include <stdio.h>
 
-int main() 
-{
-    int n;
-    printf("请输入一个小于50的正整数：");
-    scanf("%d", &n);
+int main() {
+    int matrix[3][3];
+    int i, j;
     
-    if (n <= 0 || n >= 50) 
+   
+    printf("请输入3*3矩阵：\n");
+    for(i = 0; i < 3; i++) 
     {
-        printf("输入无效，请输入小于50的正整数\n");
-        return 0;
-    }
-    
-    if (n == 1) 
-    {
-        printf("密钥不安全，请重新输入\n");
-        return 0;
-    }
-    
-    int isPrime = 1; 
-    int i = 2;       
-    
-    while (i < n) 
-    {
-        if (n % i == 0) 
+        for(j = 0; j < 3; j++) 
         {
-            isPrime = 0; 
-            break;       
+            scanf("%d", &matrix[i][j]);
         }
-        i++; 
     }
     
-    if (isPrime) 
+    
+    printf("转置矩阵：\n");
+    for(i = 0; i < 3; i++) 
     {
-        printf("密钥安全，密码设置成功\n");
-    } 
-    else 
-    {
-        printf("密钥不安全，请重新输入\n");
+        for(j = 0; j < 3; j++) 
+        {
+            printf("%d ", matrix[j][i]);  
+        }
+        printf("\n");
     }
     
     return 0;
-}   
+}
+
+
+
+
+void bubbleSort(int arr[], int n) 
+{
+    int i, j, temp;
+    int swapped;
+    
+    for (i = 0; i < n - 1; i++)
+        {
+        swapped = 0;
+        for (j = 0; j < n - 1 - i; j++) 
+        {
+            if (arr[j] > arr[j + 1]) 
+            {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                swapped = 1;
+            }
+        }
+
+        if (!swapped) 
+        {
+            break;
+        }
+    }
+}
